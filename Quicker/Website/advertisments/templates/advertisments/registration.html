@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+<h1>Sign up Form</h1>
+  <form  method="post">
+              <table align ="center">
+              {% csrf_token %}
+              {% for field in form %}
+                <tr>
+                  <td>
+                    {{ field.label_tag }}
+                  </td>
+                  <td>
+                    {{ field }}
+                    {% for error in field.errors %}
+                      <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                  </td>
+                </tr>
+              {% endfor %}
+                <tr>
+                  <td></td>
+                  <td><input type="submit"> </td>
+                </tr>
+
+            </table>
+      <br><br>
+        <h2 style="text-align:center; font-weight:bold ;color: green;">If you already have an account, then</h2>
+      <p style="text-align:center;"><a href='#' target="blank" >Login</a></p>
+  </form>
+</body>
+</html>
+
+
